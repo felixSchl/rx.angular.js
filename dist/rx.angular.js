@@ -186,7 +186,8 @@
            * Enumerable flag.
            */
           enumerable: false,
-          configurable: true
+          configurable: true,
+          writable: true
         },
         /**
          * @ngdoc property
@@ -236,7 +237,8 @@
            * Enumerable flag.
            */
           enumerable: false,
-          configurable: true
+          configurable: true,
+          writable: true
         },
         /**
          * @ngdoc property
@@ -286,7 +288,8 @@
            * Enumerable flag.
            */
           enumerable: false,
-          configurable: true
+          configurable: true,
+          writable: true
         },
         /**
          * @ngdoc function
@@ -317,7 +320,8 @@
            * Enumerable flag.
            */
           enumerable: false,
-          configurable: true
+          configurable: true,
+          writable: true
         }
       });
 
@@ -389,7 +393,7 @@
         !disposable.isDisposed && disposable.setDisposable(action(scheduler, state));
       }
 
-      (scheduler._scope.$$phase || scheduler._scope.$root.$$phase)
+      (scheduler._scope.$$phase || (scheduler._scope.$root && scheduler._scope.$root.$$phase))
         ? fn()
         : scheduler._scope.$apply(fn);
     }
